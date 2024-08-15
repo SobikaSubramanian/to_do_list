@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>To do List</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+
+    <style type="text/css">
+        *{
+            font-size: 25px;
+            background: lightblue;
+            color: black;
+        }
+
+        button{
+            cursor: pointer;
+            border: none;
+            background-color: black;
+            color: white;
+            border-radius: 10px;
+        }
+
+        button:hover{
+            background-color: white;
+            color: black;
+        }
+
+        center{
+            margin-top: 10%;
+        }
+    </style>
+
+</head>
+<body>
+    <center class="container">
+    <input type="text" id="text" placeholder="enter your activity">
+    <button onclick="add()">ADD</button>
+    <!-- <button style="visibility: hidden;" id="remove" onclick="remove()">REMOVE</button> -->
+    <div id="main-div"></div>
+    </center>
+
+    <script type="text/javascript">
+        var c = document.getElementById('main-div')
+        var rem = document.getElementById('remove')
+        function add(){
+            var a = document.getElementById('text').value;
+            var elem = document.createElement('p')
+            elem.innerHTML = a + ` <button onclick="myRemove(event)">remove</button>`
+            c.appendChild(elem);
+        }
+        function myRemove(c){
+             c.target.parentElement.remove()
+            }
+    </script>
+</body>
+</html>
